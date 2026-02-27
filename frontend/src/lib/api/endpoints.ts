@@ -1,0 +1,20 @@
+export const apiEndpoints = {
+  register: "/api/register",
+  login: "/api/login",
+  logout: "/api/logout",
+  me: "/api/me",
+  profile: "/api/profile",
+  brand: "/api/brand",
+  brandByUserId: (userId: number) => `/api/brand/${userId}`,
+  runAnalysis: "/api/run-analysis",
+  runAnalysisAsync: "/api/run-analysis-async",
+  analysisStatus: (jobId: string) => `/api/analysis-status/${jobId}`,
+  scanHistory: (userId: number) => `/api/dashboard/scan-history/${userId}`,
+  scanResult: (scanId: number) => `/api/dashboard/scan-result/${scanId}`,
+  stats: (userId: number) => `/api/dashboard/stats/${userId}`,
+  insights: (userId: number) => `/api/dashboard/insights/${userId}`,
+  pillarAverages: (userId: number) => `/api/dashboard/pillar-averages/${userId}`,
+  trends: (userId: number, metric: string, window: string) =>
+    `/api/dashboard/trends/${userId}?metric=${encodeURIComponent(metric)}&window=${encodeURIComponent(window)}`,
+  pdfReport: (scanId: number) => `/api/report/${scanId}/pdf`,
+} as const;

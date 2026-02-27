@@ -1,0 +1,40 @@
+# Global environment and local secrets
+.env
+.env.*
+!.env.example
+
+# Python cache/runtime
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Backend runtime outputs
+backend/database.db
+backend/flask_session/
+backend/static/profile/
+backend/static/screenshots/
+
+# Frontend build/runtime outputs
+frontend/node_modules/
+frontend/.next/
+frontend/coverage/
+frontend/playwright-report/
+frontend/test-results/
+frontend/e2e/
+frontend/artifacts/
+
+# Project-local scratch/backups
+extra/
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Build artifacts
+dist/
+build/
+out/
