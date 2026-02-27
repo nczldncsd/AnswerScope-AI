@@ -95,6 +95,7 @@ GitHub Actions workflow at `.github/workflows/ci.yml` runs:
 - [Architecture](docs/ARCHITECTURE.md)
 - [API Reference](docs/API_REFERENCE.md)
 - [Troubleshooting](docs/TROUBLESHOOTING.md)
+- [Complete Project Dossier](docs/PROJECT_CONTEXT_DOSSIER.md)
 
 ## Intentionally Excluded From Git
 
