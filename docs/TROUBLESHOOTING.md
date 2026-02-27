@@ -2,11 +2,36 @@
 
 ## Backend Fails To Start
 
-- Confirm Python version is 3.10+.
+- Confirm Python version is 3.11.x.
 - Install dependencies:
-  - `python -m pip install -r requirements.txt`
+  - `py -3.11 -m venv .venv`
+  - `.venv\Scripts\python.exe -m pip install --upgrade pip setuptools wheel`
+  - `.venv\Scripts\python.exe -m pip install --prefer-binary -r requirements.txt`
 - If Playwright errors appear:
-  - `python -m playwright install chromium`
+  - `.venv\Scripts\python.exe -m playwright install chromium`
+
+## `flask_session` Module Not Found
+
+This means backend dependencies were installed in a different Python than the one used to run `app.py`.
+
+Use the same interpreter for install and run:
+
+- `.venv\Scripts\python.exe -m pip install --prefer-binary -r requirements.txt`
+- `.venv\Scripts\python.exe app.py`
+
+## `Failed building wheel for greenlet`
+
+This is usually caused by unsupported Python version (commonly 3.13 on Windows for pinned dependency trees).
+
+Fix:
+
+1. Install Python 3.11.
+2. Recreate virtual environment with 3.11.
+3. Reinstall using `--prefer-binary`.
+
+Shortcut:
+
+- Run `setup-backend.bat` from project root.
 
 ## Frontend Cannot Reach API
 

@@ -15,14 +15,22 @@ set "PY_LAUNCH=python app.py"
 if exist "%ROOT%\.venv\Scripts\python.exe" (
   set "PY_LAUNCH=""%ROOT%\.venv\Scripts\python.exe"" app.py"
 ) else (
-  where python >nul 2>nul
-  if errorlevel 1 (
-    where py >nul 2>nul
+  where py >nul 2>nul
+  if not errorlevel 1 (
+    py -3.11 -V >nul 2>nul
+    if not errorlevel 1 (
+      set "PY_LAUNCH=py -3.11 app.py"
+    ) else (
+      echo [WARN] Python 3.11 not found. Falling back to default Python.
+      set "PY_LAUNCH=py -3 app.py"
+    )
+  ) else (
+    where python >nul 2>nul
     if errorlevel 1 (
       echo [ERROR] Python not found in PATH.
       exit /b 1
     )
-    set "PY_LAUNCH=py -3 app.py"
+    set "PY_LAUNCH=python app.py"
   )
 )
 

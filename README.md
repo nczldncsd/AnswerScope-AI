@@ -20,7 +20,7 @@ AnswerScope AI is a full-stack AI visibility analysis platform:
 
 ## Prerequisites
 
-- Python 3.10+
+- Python 3.11.x (recommended and used in CI)
 - Node.js 20+
 - npm 10+
 - Playwright browser binaries for backend scraping:
@@ -41,6 +41,7 @@ AnswerScope AI is a full-stack AI visibility analysis platform:
 ### Option A: launcher
 
 ```bat
+setup-backend.bat
 start-app.bat
 ```
 
@@ -49,8 +50,11 @@ start-app.bat
 Backend:
 
 ```bash
-python -m pip install -r requirements.txt
-python app.py
+py -3.11 -m venv .venv
+.venv\Scripts\python.exe -m pip install --upgrade pip setuptools wheel
+.venv\Scripts\python.exe -m pip install --prefer-binary -r requirements.txt
+.venv\Scripts\python.exe -m playwright install chromium
+.venv\Scripts\python.exe app.py
 ```
 
 Frontend:

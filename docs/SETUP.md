@@ -24,12 +24,20 @@ Optional local/dev:
 ## 3. Backend Setup
 
 ```bash
-python -m pip install -r requirements.txt
-python -m playwright install chromium
-python app.py
+py -3.11 -m venv .venv
+.venv\Scripts\python.exe -m pip install --upgrade pip setuptools wheel
+.venv\Scripts\python.exe -m pip install --prefer-binary -r requirements.txt
+.venv\Scripts\python.exe -m playwright install chromium
+.venv\Scripts\python.exe app.py
 ```
 
 Backend runs on `http://127.0.0.1:5000`.
+
+Windows one-step helper:
+
+```bat
+setup-backend.bat
+```
 
 ## 4. Frontend Setup
 

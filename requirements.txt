@@ -1,4 +1,6 @@
 # requirements.txt
+# Recommended interpreter: Python 3.11.x
+# If using Windows, prefer: `py -3.11` in a virtual environment.
 Flask==2.3.3
 Flask-Session==0.5.0
 Werkzeug==2.3.7
